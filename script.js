@@ -1,53 +1,54 @@
-        //Search button click event
-        document.getElementById('btn-search').addEventListener('click', function () {
-            const searchMeal = document.getElementById('search-meal').value;
-            if (searchMeal == "") {
-                document.getElementById('show-error').style.display = 'block';
-            } else {
-                displayInputDish(searchMeal);
-            }
+//Search button click event
+document.getElementById('btn-search').addEventListener('click', function () {
+    const searchMeal = document.getElementById('search-meal').value;
+    if (searchMeal == "") {
+        document.getElementById('show-error').style.display = 'block';
+    } else {
+        displayInputDish(searchMeal);
+    }
 
-            document.getElementById('meals-list').innerHTML = "";
-            document.getElementById('meal-details').innerHTML = "";
+    document.getElementById('meals-list').innerHTML = "";
+    document.getElementById('meal-details').innerHTML = "";
 
-        });
+});
 
-        //Function to display searched meal
-        function displayInputDish(input) {
-            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${input}`)
-            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
-                .then(res => res.json())
-                .then(data => displayDishes(data.meals))
-                .catch(error => document.getElementById('show-error').style.display = 'block');
-        }
+//Function to display searched meal
+function displayInputDish(input) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${input}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
+        .then(res => res.json())
+        .then(data => displayDishes(data.meals))
+        .catch(error => document.getElementById('show-error').style.display = 'block');
+}
 
-        //Display meals 
-        const displayDishes = meals => {
-            const mealsDiv = document.getElementById('meals-list');
-            meals.forEach(meal => {
-                const mealDiv = document.createElement('div');
-                mealDiv.className = 'meal';
-                const mealInfo = `
+//Display meals 
+const displayDishes = meals => {
+    const mealsDiv = document.getElementById('meals-list');
+    meals.forEach(meal => {
+        const mealDiv = document.createElement('div');
+        mealDiv.className = 'meal';
+        const mealInfo = `
             <div onclick="showMeals('${meal.strMeal}')">
                 <img src="${meal.strMealThumb}">
                 <h3>${meal.strMeal}</h3> </div>`;
-                mealDiv.innerHTML = mealInfo;
-                mealsDiv.appendChild(mealDiv);
-            });
-        }
+        mealDiv.innerHTML = mealInfo;
+        mealsDiv.appendChild(mealDiv);
+        document.getElementById('show-error').style.display = 'none';
+    });
+}
 
-        //Meal details
-        const showMeals = meal => {
-            const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
-            fetch(url)
-                .then(res => res.json())
-                .then(data => showMealDetails(data.meals[0]))
-        }
+//Meal details
+const showMeals = meal => {
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
+    fetch(url)
+        .then(res => res.json())
+        .then(data => showMealDetails(data.meals[0]))
+}
 
-        //Ingredients of selected meal 
-        const showMealDetails = meal => {
-            const mealDiv = document.getElementById('meal-details');
-            mealDiv.innerHTML = `
+//Ingredients of selected meal 
+const showMealDetails = meal => {
+    const mealDiv = document.getElementById('meal-details');
+    mealDiv.innerHTML = `
         <img src="${meal.strMealThumb}">
         <h3>${meal.strMeal}</h3>
         <h6>Ingredients:</h6>
@@ -64,4 +65,4 @@
         <li> * ${meal.strIngredient10}</li>
         </ul>
         `;
-        }
+}
