@@ -1,0 +1,73 @@
+section {
+    background-color: rgb(243, 211, 130);
+    min-height: 650px;
+}
+
+.navbar{
+padding: 0 100px 0 100px;
+}
+
+
+.container {
+    padding: 80px 0px;
+}
+
+#meals-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.meal {
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.meal img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+
+}
+
+.meal h3,
+#meal-details h3 {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 15px 0;
+
+}
+     
+#meal-details {
+    background-color: #fff;
+    width: 40%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+#meal-details img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+#meal-details h6 {
+    padding-left: 50px;
+    padding-bottom: 7px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#meal-details ul {
+    padding-bottom: 20px;
+}
+
+#meal-details ul li {
+    list-style: none;
+    margin: 10x ;
+}
+
