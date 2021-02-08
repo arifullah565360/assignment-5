@@ -68,7 +68,8 @@ padding: 0 100px 0 100px;
     background-color: #fff;
     width: 40%;
     border-radius: 10px;
-    margin: auto;
+    margin-left: 30%;
+    margin-top: 50px;
 }
 
 #meal-details img {
