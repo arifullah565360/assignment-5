@@ -1,3 +1,6 @@
+.bg-nav{
+    background-color:  rgb(245, 227, 181);
+}
 section {
     background-color: rgb(243, 211, 130);
     min-height: 650px;
@@ -9,7 +12,25 @@ padding: 0 100px 0 100px;
 
 
 .container {
-    padding: 80px 0px;
+    padding: 20px 0px;
+}
+
+#search-meal{
+    width: 700px; 
+    width: 50%;
+    height: 40px;
+    padding: 25px;
+    
+}
+
+#btn-search{
+    border: none; 
+    padding: 10px; 
+    color:rgb(255, 255, 255); 
+    background-color: rgb(255, 98, 7);
+    height: 50px;
+    width: 100px;
+    border: tomato;
 }
 
 #meals-list {
@@ -33,14 +54,13 @@ padding: 0 100px 0 100px;
 
 }
 
-.meal h3,
+.meal h3, 
 #meal-details h3 {
     font-size: 25px;
     font-weight: 700;
     text-transform: capitalize;
     text-align: center;
     padding: 15px 0;
-
 }
      
 #meal-details {
